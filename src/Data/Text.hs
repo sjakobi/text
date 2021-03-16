@@ -1769,7 +1769,7 @@ isInfixOf needle haystack
     | null needle        = True
     | isSingleton needle = S.elem (unsafeHead needle) . S.stream $ haystack
     | otherwise          = not . L.null . indices needle $ haystack
-{-# INLINE [1] isInfixOf #-}
+{-# INLINABLE [1] isInfixOf #-}
 
 {-# RULES
 "TEXT isInfixOf/singleton -> S.elem/S.stream" [~1] forall n h.
